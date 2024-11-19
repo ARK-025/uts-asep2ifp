@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>BMI Calculate</title>
+  </head>
+  <body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TimTam</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-flex">
+
+      
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="bmi.html">BMI</a>
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container text-center p-6 mb-5">
+    <h1 class="h1">About BMI</h1>
+    <p class="">Melalui hasil perhitungan BMI, Anda akan mengetahui kategori berat badan, yaitu kurus, ideal, berlebihan, atau bahkan obesitas. Metode perhitungan ini juga bisa menjadi alat skrining untuk melihat risiko kesehatan tertentu.</p>
+  </div>
+      <div class="container">
+            <h1>BMI Calculator</h1>
+
+            <p>Height (in cm)</p>
+    
+            <input type="number" id="tinggi" />
+    
+            <p>Weight (in kg)</p>
+    
+            <input type="number" id="berat" />
+    
+            <button onclick="hitung()">Calculate</button>
+            <h5 class="h5" id="bmi"></h5>
+            <h5 class="h5" id="keterangan"></h5>
+        </div>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              most frequently asked #1
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Saya ingin menurunkan berat badan. Bagaimana biasanya Anda menyusun rencana pengobatan dengan pasien Anda?</strong>Anda dapat berdiskusi dengan mengambil contoh mengenai orang lain untuk mendapatkan gambaran tentang bagaimana biasanya dokter Anda membantu pasien mencapai target kesehatan mereka. Bersiaplah untuk mendiskusikan riwayat berat badan Anda dan harapan Anda di waktu mendatang.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              most frequently asked #2
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Berapa banyak berat badan yang harus saya turunkan?</strong> Dokter Anda dapat membantu Anda mengidentifikasi target yang berarti dan realistis yang sesuai dengan rencana penurunan berat badan Anda. Untuk lebih mempersiapkan diri Anda, tanyakan kepada tim layanan kesehatan Anda tentang apa yang dapat Anda harapkan selama pengobatan dan di akhir pengobatan Anda.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              most frequently asked #3
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Apa opsi pengobatan yang dapat Anda rekomendasikan untuk saya dan apa alasannya?</strong> Ini adalah pertanyaan penting karena tidak ada satu pendekatan yang efektif untuk semua orang. Dokter Anda akan mempertimbangkan keadaan Anda, kondisi kesehatan, pengobatan sebelumnya untuk disesuaikan dengan jenis pemeriksaan, evaluasi, dan pengobatan yang sesuai dengan rencana penurunan berat badan Anda.
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+    <body>
+      <div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Take care of your health</h5>
+          <p class="card-text">contact us if you want further consultation</p>
+          <a href="#" class="btn btn-primary">Lets Gooo</a>
+        </div>
+        <div class="card-footer text-body-secondary">
+          2 days ago
+        </div>
+      </div>
+      <script>
+        var tinggi, berat, hasil, keterangan;
+
+        function hitung(){
+            tinggi = parseFloat(document.getElementById("tinggi").value)
+            tinggi /= 100;
+            berat = parseFloat(document.getElementById("berat").value)
+            bmi = berat / (tinggi * tinggi)
+
+            if (bmi<=18.5) {
+                keterangan = "kamu terlalu kecil, naikan berat badan"
+            }
+            else if (bmi>18.5 && bmi<=24.9) {
+                keterangan = "berat badan kamu ideal"
+            }
+            else if (bmi>=25 && bmi<=29.9) {
+                keterangan = "kamu sedikit gemuk"
+            }
+            else if (bmi>=30 && bmi>=34.9) {
+                keterangan = "kamu mengalami obesitas ringan"
+            }
+            else if (bmi>=35 && bmi>=39.9) {
+                keterangan = "kamu mengalami obesitas menengah"
+            }
+            else if (bmi>=40) {
+                keterangan = "kamu mengalami obesitas berat"
+            }
+
+            document.getElementById("bmi").innerHTML = "Hasil Perhitungan : " + bmi.toFixed(1);
+            document.getElementById("keterangan").innerHTML = "Keterangan : " + keterangan;
+        }
+    </script>
+
+    </body>
+</body>
+</html>
+
